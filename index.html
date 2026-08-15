@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankit Singh — Portfolio</title>
+<meta name="description" content="Ankit Singh — Computer Science undergrad, competitive programmer and full-stack developer.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="cursor-glow"></div>
+
+<!-- Editor-style tab navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-tabs">
+    <a class="nav-tab active" href="#top" data-target="top"><i class="ti ti-terminal-2"></i><span>index.html</span></a>
+    <a class="nav-tab" href="#experience" data-target="experience"><i class="ti ti-git-commit"></i><span>experience.log</span></a>
+    <a class="nav-tab" href="#projects" data-target="projects"><i class="ti ti-folder"></i><span>projects/</span></a>
+    <a class="nav-tab" href="#skills" data-target="skills"><i class="ti ti-braces"></i><span>skills.json</span></a>
+    <a class="nav-tab" href="#contact" data-target="contact"><i class="ti ti-file-text"></i><span>contact.env</span></a>
+  </div>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+    <i class="ti ti-sun" id="themeIcon"></i>
+  </button>
+</nav>
+
+<div class="port">
+
+  <!-- Hero section -->
+  <div class="hero" id="top">
+    <div class="hero-bg-full"><canvas id="hero-canvas"></canvas></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="badge-dot"></span>STATUS: AVAILABLE_FOR_HIRE</div>
+      <h1>Ankit<br><span class="name-accent">Singh</span></h1>
+      <p class="hero-sub">Computer Science undergrad at UCER, building with AI, DSA &amp; full-stack development.</p>
+
+      <div class="terminal">
+        <div class="terminal-head">
+          <div class="terminal-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+          <span class="terminal-file">whoami.sh</span>
+        </div>
+        <div class="terminal-body">
+          <p class="term-line"><span class="prompt">ankit@dev</span><span class="tilde">~</span><span class="dollar">$</span> whoami</p>
+          <p class="term-out">&gt; Ankit Singh — CS undergrad, United College of Engineering &amp; Research</p>
+          <p class="term-line"><span class="prompt">ankit@dev</span><span class="tilde">~</span><span class="dollar">$</span> cat focus.txt</p>
+          <p class="term-out">&gt; <span id="typed"></span><span class="term-cursor"></span></p>
+        </div>
+      </div>
+
+      <!-- Links an resume -->
+      <div class="hero-links">
+        <a class="btn btn-primary" href="mailto:ankitsingh94932@gmail.com"><i class="ti ti-mail"></i> Email me</a>
+        <a class="btn btn-outline" href="final_resume.pdf" download="Ankit_Singh_Resume.pdf"><i class="ti ti-download"></i> Résumé</a>
+        <a class="btn" href="https://linkedin.com/in/ankit-singh-00b366283" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+        <a class="btn" href="https://github.com/ankit-9335" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> GitHub</a>
+        <a class="btn" href="https://leetcode.com/u/_ankitsingh9/" target="_blank" rel="noopener"><i class="ti ti-code"></i> LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats  -->
+  <div class="code-card reveal" aria-label="Portfolio statistics">
+    <div class="code-card-head">
+      <div class="terminal-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+      <span class="terminal-file">stats.json</span>
+    </div>
+    <pre class="code-body"><code><span class="ln">1</span><span class="tok-punc">{</span>
+<span class="ln">2</span>  <span class="tok-key">"problems_solved"</span><span class="tok-punc">:</span> <span class="tok-str stat-val" data-count="250" data-suffix="+">"0"</span><span class="tok-punc">,</span>
+<span class="ln">3</span>  <span class="tok-key">"projects_shipped"</span><span class="tok-punc">:</span> <span class="tok-num stat-val" data-count="4" data-suffix="+">"0"</span><span class="tok-punc">,</span>
+<span class="ln">4</span>  <span class="tok-key">"event_participants"</span><span class="tok-punc">:</span> <span class="tok-str stat-val" data-count="150" data-suffix="+">"0"</span><span class="tok-punc">,</span>
+<span class="ln">5</span>  <span class="tok-key">"certifications"</span><span class="tok-punc">:</span> <span class="tok-num stat-val" data-count="4" data-suffix="+">"0"</span>
+<span class="ln">6</span><span class="tok-punc">}</span></code></pre>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="nav-pills">
+    <button class="pill active" onclick="filterSection('all',this)">--all</button>
+    <button class="pill" onclick="filterSection('experience',this)">--experience</button>
+    <button class="pill" onclick="filterSection('projects',this)">--projects</button>
+    <button class="pill" onclick="filterSection('skills',this)">--skills</button>
+    <button class="pill" onclick="filterSection('education',this)">--education</button>
+    <button class="pill" onclick="filterSection('certifications',this)">--certifications</button>
+  </div>
+
+  <!-- Experience -->
+  <section id="experience" class="reveal">
+    <p class="sec-label">// experience</p>
+    <div class="gitlog">
+
+      <div class="commit">
+        <span class="commit-hash">a1f7c92</span>
+        <div class="commit-body">
+          <p class="commit-msg">Summer Internship — Generative AI</p>
+          <p class="commit-meta">Author: <span>IBM</span> &nbsp;·&nbsp; Date: <span>Jul – Aug 2025</span></p>
+          <p class="commit-desc">Explored fundamentals of Generative AI, LLMs, and prompt engineering. Worked on AI workflows involving text generation and prompt optimization techniques.</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <span class="commit-hash">5e0d3b8</span>
+        <div class="commit-body">
+          <p class="commit-msg">Java Programming Internship</p>
+          <p class="commit-meta">Author: <span>IIT Kanpur</span> &nbsp;·&nbsp; Date: <span>Aug 2024</span></p>
+          <p class="commit-desc">Completed hands-on training in Java and OOP concepts. Solved 50+ coding problems focused on logic building, arrays, and OOP implementation.</p>
+        </div>
+      </div>
+
+      <div class="commit commit-head">
+        <span class="commit-hash">f28a1c4</span>
+        <div class="commit-body">
+          <p class="commit-msg">Event Coordinator <span class="head-tag"><i class="ti ti-git-branch"></i>HEAD</span></p>
+          <p class="commit-meta">Author: <span>UCER — Technical &amp; Esports Events</span> &nbsp;·&nbsp; Date: <span>ongoing</span></p>
+          <p class="commit-desc">Coordinated technical and esports events with 100+ participants. Supervised logistics and execution teams to ensure smooth event operations.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects — repo file cards and live deployed links -->
+  <section id="projects" class="reveal">
+    <p class="sec-label">// projects</p>
+    <div class="proj-grid stagger">
+
+      <div class="proj-card">
+        <div class="proj-file-head"><i class="ti ti-qrcode"></i><span>lost-and-found.py</span></div>
+        <p class="proj-title">QR-Based Lost &amp; Found System</p>
+        <p class="proj-desc">QR-powered system for efficient lost item tracking and recovery with secure owner verification and reporting.</p>
+        <div class="proj-tags"><span class="proj-tag">python</span><span class="proj-tag">web</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-file-head"><i class="ti ti-news"></i><span>fake-news-detector.ipynb</span></div>
+        <p class="proj-title">Fake News Generator &amp; Detector</p>
+        <p class="proj-desc">NLP-based system using ML techniques for text classification to both generate and detect fake news.</p>
+        <div class="proj-tags"><span class="proj-tag">nlp</span><span class="proj-tag">ml</span><span class="proj-tag">python</span></div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/ankit-9335/fake-news-generator-and-detector" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> Code</a>
+          <a class="proj-link" href="https://fake-news-generator-and-detector-nw4cwdy8pw3rvmk35mppzf.streamlit.app/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Live Demo</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-file-head"><i class="ti ti-plane"></i><span>AirlineSystem.java</span></div>
+        <p class="proj-title">Airline Management System</p>
+        <p class="proj-desc">Java application for booking and scheduling operations with structured OOP-based passenger record management.</p>
+        <div class="proj-tags"><span class="proj-tag">java</span><span class="proj-tag">oop</span></div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/ankit-9335/Airline-Management-System" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> Code</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills swction -->
+  <section id="skills" class="reveal">
+    <p class="sec-label">// skills</p>
+
+    <p class="sub-label">languages</p>
+    <div class="skills-wrap" style="margin-bottom:2.25rem">
+      <span class="skill-chip lang">C++</span>
+      <span class="skill-chip lang">Python</span>
+      <span class="skill-chip lang">SQL</span>
+      <span class="skill-chip lang">Java</span>
+      <span class="skill-chip lang">JavaScript</span>
+      <span class="skill-chip lang">HTML</span>
+      <span class="skill-chip lang">CSS</span>
+    </div>
+
+    <p class="sub-label">proficiency</p>
+    <div class="prof-list">
+      <div class="prof-row">
+        <span class="prof-label">C++</span>
+        <div class="prof-track"><div class="prof-fill" data-width="85"></div></div>
+        <span class="prof-pct">85%</span>
+      </div>
+      <div class="prof-row">
+        <span class="prof-label">Python</span>
+        <div class="prof-track"><div class="prof-fill" data-width="80"></div></div>
+        <span class="prof-pct">80%</span>
+      </div>
+      <div class="prof-row">
+        <span class="prof-label">Java</span>
+        <div class="prof-track"><div class="prof-fill" data-width="75"></div></div>
+        <span class="prof-pct">75%</span>
+      </div>
+      <div class="prof-row">
+        <span class="prof-label">Web</span>
+        <div class="prof-track"><div class="prof-fill" data-width="70"></div></div>
+        <span class="prof-pct">70%</span>
+      </div>
+    </div>
+
+    <p class="sub-label" style="margin-top:2.25rem">tools &amp; core subjects</p>
+    <div class="skills-wrap">
+      <span class="skill-chip">VS Code</span>
+      <span class="skill-chip">Git</span>
+      <span class="skill-chip">GitHub</span>
+      <span class="skill-chip">DSA</span>
+      <span class="skill-chip">DBMS</span>
+      <span class="skill-chip">Operating Systems</span>
+      <span class="skill-chip">OOPs</span>
+      <span class="skill-chip">Computer Networks</span>
+    </div>
+  </section>
+
+  <!-- Education. -->
+  <section id="education" class="reveal">
+    <p class="sec-label">// education</p>
+    <div class="edu-card">
+      <div class="edu-icon"><i class="ti ti-school"></i></div>
+      <div class="edu-info">
+        <p class="edu-school">United College of Engineering &amp; Research, Prayagraj</p>
+        <p class="edu-deg">B.Tech — Computer Science &amp; Engineering</p>
+      </div>
+      <div class="edu-right"><p class="edu-grade">CGPA 6.7</p><p class="edu-year">2023–2027</p></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon"><i class="ti ti-book"></i></div>
+      <div class="edu-info">
+        <p class="edu-school">M.P. Memorial School, Varanasi</p>
+        <p class="edu-deg">Class XII — CBSE</p>
+      </div>
+      <div class="edu-right"><p class="edu-grade">72.2%</p><p class="edu-year">2022</p></div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon"><i class="ti ti-book"></i></div>
+      <div class="edu-info">
+        <p class="edu-school">M.P. Memorial School, Varanasi</p>
+        <p class="edu-deg">Class X — CBSE</p>
+      </div>
+      <div class="edu-right"><p class="edu-grade">74.4%</p><p class="edu-year">2020</p></div>
+    </div>
+  </section>
+
+  <!-- Certifications. -->
+  <section id="certifications" class="reveal">
+    <p class="sec-label">// certifications &amp; achievements</p>
+    <div class="cert-grid stagger">
+      <div class="cert-card">
+        <div class="cert-icon"><i class="ti ti-certificate"></i></div>
+        <div><p class="cert-name">Generative AI Certification</p><p class="cert-by">IBM</p></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="ti ti-certificate"></i></div>
+        <div><p class="cert-name">Java Programming Certification</p><p class="cert-by">IIT Techkriti</p></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="ti ti-certificate"></i></div>
+        <div><p class="cert-name">Python Certification</p><p class="cert-by">HCL GUVI</p></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="ti ti-trophy"></i></div>
+        <div><p class="cert-name">Active Problem Solver</p><p class="cert-by">LeetCode &amp; GFG</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-bar reveal">
+    <div class="cta-bar-text">
+      <p><span class="prompt">ankit@portfolio</span><span class="tilde">~</span><span class="dollar">$</span> Open to internships, SDE roles &amp; collaborations<span class="term-cursor"></span></p>
+      <span class="cta-sub"># Prayagraj / Varanasi · +91-9335113650</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="mailto:ankitsingh94932@gmail.com"><i class="ti ti-send"></i> Get in touch</a>
+      <a class="btn btn-outline" href="final_resume.pdf" download="Ankit_Singh_Resume.pdf"><i class="ti ti-download"></i> Résumé PDF</a>
+    </div>
+  </div>
+
+  <!-- Contact and footer-->
+  <section id="contact" class="reveal">
+    <p class="sec-label">// contact</p>
+    <div class="code-card" style="max-width:600px;margin:0 auto">
+      <div class="code-card-head">
+        <div class="terminal-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+        <span class="terminal-file">contact.env</span>
+      </div>
+      <div class="env-body">
+        <p class="env-row"><span class="tok-key">EMAIL</span><span class="tok-punc">=</span><a class="tok-str" href="mailto:ankitsingh94932@gmail.com">"ankitsingh94932@gmail.com"</a></p>
+        <p class="env-row"><span class="tok-key">GITHUB</span><span class="tok-punc">=</span><a class="tok-str" href="https://github.com/ankit-9335" target="_blank" rel="noopener">"github.com/ankit-9335"</a></p>
+        <p class="env-row"><span class="tok-key">LINKEDIN</span><span class="tok-punc">=</span><a class="tok-str" href="https://linkedin.com/in/ankit-singh-00b366283" target="_blank" rel="noopener">"linkedin.com/in/ankit-singh-00b366283"</a></p>
+        <p class="env-row"><span class="tok-key">LOCATION</span><span class="tok-punc">=</span><span class="tok-str">"Varanasi, Uttar Pradesh, IN"</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">// crafted by <span>Ankit Singh</span> · 2025 — EOF</div>
+
+</div>
+
+<button id="back-top" aria-label="Back to top">
+  <i class="ti ti-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
